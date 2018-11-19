@@ -1,18 +1,10 @@
-#include "TestingDLL.h"
+#include "../TestingDLL/TestingDLL.h"
 #include <iostream>
 #include <list>
 
 using namespace std;
 
 list<int> numbers;
-
-void checkDuplicates()
-{
-	for (int n : numbers)
-	{
-		checkNumber(n);
-	}
-}
 
 int main()
 {
@@ -28,7 +20,8 @@ int main()
 		count++;
 	}
 
-	checkDuplicates();
+	checkNumbers(numbers);
+	cin.get();
 	cin.get();
 	return 0;
 }
