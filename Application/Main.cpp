@@ -1,27 +1,23 @@
-#include "../TestingDLL/TestingDLL.h"
+#include "../TestApplication/TestApplication.h"
+#include <assert.h>
 #include <iostream>
 #include <list>
 
 using namespace std;
 
-list<int> numbers;
 
 int main()
 {
-	int num = 0;
-	int count = 0;
-	int targetNumbers = 6;
+	TestApplication testApplication;
 
-	while (count < targetNumbers)
-	{
-		cout << "Enter a number between 1 and 46: ";
-		cin >> num;
-		numbers.push_back(num);
-		count++;
-	}
+	assert(testApplication.checkNumbers(list<int>{ 1, 2, 3, 4, 5, 6}));
 
-	checkNumbers(numbers);
-	cin.get();
+	assert(!testApplication.checkNumbers(list<int>{ 30, 22, 13, 9, 8, 0}));
+
+	assert(!testApplication.checkNumbers(list<int>{ 1, 2, 3, 4, 5, 6, 9, 40}));
+
+	assert(testApplication.checkNumbers(list<int>{ 31, 6, 10, 41, 5, 6}));
+
 	cin.get();
 	return 0;
-}
+};
